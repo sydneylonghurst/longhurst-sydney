@@ -1,0 +1,1358 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sydney Longhurst</title>
+  <meta name="description" content="Sydney Longhurst, Associate Compliance Analyst at Identity Digital Inc., UW Class of 2026, spin instructor, and outdoor enthusiast. Based in Bellevue, WA.">
+  <meta property="og:title" content="Sydney Longhurst">
+  <meta property="og:description" content="Associate Compliance Analyst · UW Class of 2026 · Bellevue, WA">
+  <meta property="og:image" content="IMG_7375.JPG">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="IMG_7375.JPG">
+
+  <!-- Prevent dark mode flash -->
+  <script>
+    if (localStorage.getItem('slTheme') === 'dark')
+      document.documentElement.setAttribute('data-theme','dark');
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --p50:  #fff0f5;
+      --p100: #ffe0ed;
+      --p200: #ffb3ce;
+      --p300: #ff80b0;
+      --p400: #ff4d92;
+      --p500: #e8006d;
+      --p600: #cc005f;
+      --p700: #8f0042;
+      --td:   #1a0810;
+      --tm:   #5c2d45;
+      --tl:   #7a3d5f;
+      --surface:  #ffffff;
+      --surface2: #fff0f5;
+      --bg:       #fff0f5;
+    }
+
+    /* DARK MODE */
+    [data-theme="dark"] {
+      --p50:  #1e0c16;
+      --p100: #2d1220;
+      --p200: #4a1f38;
+      --p300: #8f0042;
+      --p400: #ff4d92;
+      --p500: #ff6ba8;
+      --p600: #e8006d;
+      --td:   #ffe8f0;
+      --tm:   #ffb3ce;
+      --tl:   #e87fb0;
+      --surface:  #1e0c16;
+      --surface2: #160a11;
+      --bg:       #160a11;
+    }
+    [data-theme="dark"] body        { background: var(--bg); }
+    [data-theme="dark"] nav         { background: rgba(22,10,17,0.95); border-color: var(--p200); }
+    [data-theme="dark"] .mobile-nav { background: rgba(22,10,17,0.97); }
+    [data-theme="dark"] .mobile-nav a { color: var(--td); }
+    [data-theme="dark"] #about, [data-theme="dark"] #highlights,
+    [data-theme="dark"] #education, [data-theme="dark"] #contact { background: var(--surface); }
+    [data-theme="dark"] .trait, [data-theme="dark"] .life-card,
+    [data-theme="dark"] .hi-card,  [data-theme="dark"] .edu-card,
+    [data-theme="dark"] .currently-card { background: var(--p100); border-color: var(--p200); }
+    [data-theme="dark"] .tl-logo   { border-color: var(--p200); }
+    [data-theme="dark"] .tl-dot    { border-color: var(--bg); }
+    [data-theme="dark"] .tag       { background: var(--p100); border-color: var(--p200); color: var(--td); }
+    [data-theme="dark"] .contact-btn-secondary { background: var(--p100); color: var(--p400); border-color: var(--p200); }
+    [data-theme="dark"] .stats-strip { background: var(--surface); border-color: var(--p200); }
+    [data-theme="dark"] .lb-inner  { background: rgba(22,10,17,0.98); }
+    [data-theme="dark"] .tooltip   { background: var(--p100); color: var(--td); border-color: var(--p200); }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 70px; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--td);
+      overflow-x: hidden;
+      transition: background 0.4s ease, color 0.4s ease;
+    }
+
+    :focus-visible { outline: 2px solid var(--p500); outline-offset: 3px; border-radius: 4px; }
+    :focus:not(:focus-visible) { outline: none; }
+
+    /* CURSOR */
+    body, a, button, .tag, .gallery-item, .hi-card, .trait, .life-card { cursor: none !important; }
+    #cursor-dot {
+      position: fixed; z-index: 9999; pointer-events: none;
+      width: 10px; height: 10px; border-radius: 50%;
+      background: var(--p400); mix-blend-mode: multiply;
+      transform: translate(-50%,-50%);
+      transition: transform 0.12s ease, width 0.2s, height 0.2s, background 0.2s;
+    }
+    #cursor-dot.hovering { width: 22px; height: 22px; background: var(--p300); mix-blend-mode: normal; }
+    .cursor-trail {
+      position: fixed; pointer-events: none; z-index: 9998;
+      font-size: 16px; user-select: none;
+      animation: trail-fade 0.8s ease-out forwards;
+      transform: translate(-50%,-50%);
+    }
+    @keyframes trail-fade {
+      0%   { opacity: 1;   transform: translate(-50%,-50%) scale(1.1); }
+      100% { opacity: 0;   transform: translate(-50%,-160%) scale(0.1); }
+    }
+
+    /* PROGRESS BAR */
+    #progress-bar {
+      position: fixed; top: 0; left: 0; height: 3px; z-index: 500;
+      background: linear-gradient(90deg, #ff4d92, #e8006d, #8f0042);
+      width: 0%; pointer-events: none;
+      transition: width 0.08s linear;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      padding: 0.9rem 2.5rem;
+      display: flex; justify-content: space-between; align-items: center;
+      background: rgba(255,240,245,0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--p200);
+      transition: box-shadow 0.3s, background 0.4s, border-color 0.4s;
+    }
+    nav.scrolled { box-shadow: 0 2px 24px rgba(232,0,109,0.1); }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem; font-weight: 700;
+      color: var(--p500); letter-spacing: -0.3px;
+    }
+    .nav-links { list-style: none; display: flex; gap: 1.75rem; }
+    .nav-links a {
+      text-decoration: none; color: var(--tm);
+      font-size: 0.84rem; font-weight: 500;
+      transition: color 0.2s;
+      position: relative; padding-bottom: 2px;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -2px; left: 0; right: 0; height: 2px;
+      background: var(--p500); border-radius: 1px;
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.25s ease;
+    }
+    .nav-links a:hover, .nav-links a.nav-active { color: var(--p500); }
+    .nav-links a.nav-active::after { transform: scaleX(1); }
+
+    .nav-actions { display: flex; align-items: center; gap: 0.75rem; }
+
+    /* DARK TOGGLE */
+    .dark-toggle {
+      background: none; border: 1.5px solid var(--p200);
+      border-radius: 50%; width: 34px; height: 34px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.9rem;
+      transition: border-color 0.2s, background 0.2s, transform 0.3s;
+    }
+    .dark-toggle:hover { border-color: var(--p400); background: var(--p50); transform: rotate(20deg); }
+
+    /* HAMBURGER */
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      background: none; border: none; padding: 6px; border-radius: 6px;
+    }
+    .hamburger span {
+      display: block; width: 22px; height: 2px;
+      background: var(--p500); border-radius: 2px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+
+    .mobile-nav {
+      display: none;
+      position: fixed; inset: 0; z-index: 199;
+      background: rgba(255,240,245,0.97);
+      backdrop-filter: blur(20px);
+      flex-direction: column; align-items: center; justify-content: center; gap: 2.25rem;
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem; font-weight: 700;
+      color: var(--td); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .mobile-nav a:hover { color: var(--p500); }
+
+    /* HERO */
+    #hero {
+      min-height: 100vh; position: relative; overflow: hidden;
+      background: linear-gradient(135deg, #ff4d92 0%, #e8006d 45%, #8f0042 100%);
+      display: flex; align-items: center;
+      padding: 7rem 4rem 5rem;
+    }
+    #hero::before {
+      content: ''; position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse at 20% 60%, rgba(255,255,255,0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 85% 10%, rgba(255,200,230,0.18) 0%, transparent 45%);
+    }
+    #particle-canvas { position: absolute; inset: 0; pointer-events: none; }
+
+    .hero-inner {
+      max-width: 1100px; margin: 0 auto; width: 100%;
+      display: grid; grid-template-columns: 1fr 420px;
+      gap: 4rem; align-items: center;
+      position: relative; z-index: 2;
+    }
+    .hero-text { color: white; }
+    .hero-eyebrow {
+      font-size: 0.72rem; letter-spacing: 3.5px;
+      text-transform: uppercase; opacity: 0.72;
+      margin-bottom: 1.1rem; font-weight: 500;
+    }
+    .hero-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 6vw, 5.5rem);
+      font-weight: 700; line-height: 1.05;
+      letter-spacing: -1.5px; margin-bottom: 1.1rem;
+    }
+    .hero-name em { font-style: italic; font-weight: 400; }
+    .hero-tagline {
+      font-size: 1.05rem; opacity: 0.88; line-height: 1.78;
+      margin-bottom: 1rem; font-weight: 300; max-width: 480px;
+    }
+    /* TYPEWRITER */
+    .hero-typewriter {
+      font-size: 1.1rem; font-weight: 600; margin-bottom: 2rem;
+      min-height: 1.6em; color: rgba(255,255,255,0.95);
+    }
+    .typewriter-cursor {
+      display: inline-block;
+      animation: blink 0.75s step-end infinite;
+      color: rgba(255,255,255,0.8);
+      font-weight: 300;
+    }
+    @keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0; } }
+
+    .hero-chips { display: flex; gap: 0.55rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+    .hero-chip {
+      background: rgba(255,255,255,0.14); backdrop-filter: blur(6px);
+      border: 1px solid rgba(255,255,255,0.28);
+      color: white; padding: 0.35rem 0.9rem;
+      border-radius: 2rem; font-size: 0.76rem; font-weight: 500;
+    }
+    .hero-btns { display: flex; gap: 0.9rem; }
+    .btn {
+      padding: 0.7rem 1.9rem; border-radius: 3rem;
+      font-size: 0.84rem; font-weight: 600; text-decoration: none;
+      display: inline-block;
+      transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease, border-color 0.22s ease;
+      will-change: transform;
+    }
+    .btn-white { background: white; color: var(--p500); }
+    .btn-white:hover { background: var(--p50); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.18); }
+    .btn-ghost { background: transparent; color: white; border: 2px solid rgba(255,255,255,0.45); }
+    .btn-ghost:hover { background: rgba(255,255,255,0.14); border-color: white; transform: translateY(-2px); }
+
+    .hero-photo-wrap { position: relative; flex-shrink: 0; }
+    .hero-photo-wrap::before {
+      content: ''; position: absolute; inset: -8px; border-radius: 2rem;
+      background: rgba(255,255,255,0.15); transform: rotate(3deg);
+    }
+    .hero-photo-wrap::after {
+      content: ''; position: absolute; inset: -16px; border-radius: 2.25rem;
+      border: 2px solid rgba(255,255,255,0.18); transform: rotate(-2deg);
+    }
+    .hero-photo {
+      width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: center 20%;
+      border-radius: 1.75rem; position: relative; z-index: 1;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.3);
+    }
+    .scroll-hint {
+      position: absolute; bottom: 2.25rem; left: 50%;
+      transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 0.4rem;
+      color: rgba(255,255,255,0.5); font-size: 0.65rem;
+      letter-spacing: 2.5px; text-transform: uppercase;
+      animation: bob 2.2s ease-in-out infinite;
+    }
+    @keyframes bob {
+      0%,100% { transform: translateX(-50%) translateY(0); }
+      50%      { transform: translateX(-50%) translateY(7px); }
+    }
+
+    /* SHARED */
+    section { padding: 5.5rem 2rem; }
+    .container { max-width: 1080px; margin: 0 auto; }
+    .label { font-size: 0.72rem; letter-spacing: 3.5px; text-transform: uppercase; color: var(--p500); font-weight: 600; margin-bottom: 0.6rem; }
+    h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 2.8rem); color: var(--td); line-height: 1.18; margin-bottom: 0.85rem; }
+    .sub { color: var(--tl); line-height: 1.72; max-width: 540px; font-size: 0.97rem; }
+
+    /* ABOUT */
+    #about { background: var(--surface); transition: background 0.4s; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; margin-top: 3rem; }
+    .about-text p { color: var(--tm); line-height: 1.88; margin-bottom: 1.2rem; font-size: 0.975rem; }
+
+    /* CURRENTLY CARD */
+    .currently-card {
+      margin-top: 2rem; background: var(--p50); border: 1px solid var(--p100);
+      border-radius: 1.2rem; padding: 1.4rem 1.75rem;
+      transition: background 0.4s, border-color 0.4s;
+    }
+    .currently-header {
+      display: flex; align-items: center; gap: 0.6rem;
+      margin-bottom: 1rem;
+    }
+    .currently-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: #22c55e;
+      box-shadow: 0 0 0 0 rgba(34,197,94,0.4);
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+    @keyframes pulse-dot {
+      0%   { box-shadow: 0 0 0 0 rgba(34,197,94,0.5); }
+      70%  { box-shadow: 0 0 0 7px rgba(34,197,94,0); }
+      100% { box-shadow: 0 0 0 0 rgba(34,197,94,0); }
+    }
+    .currently-label { font-size: 0.74rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--p500); }
+    .currently-items { display: flex; flex-direction: column; gap: 0.55rem; }
+    .currently-item { font-size: 0.875rem; color: var(--tm); line-height: 1.5; }
+
+    .trait-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .trait {
+      background: var(--p50); border: 1px solid var(--p100); border-radius: 1rem; padding: 1.25rem;
+      transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.4s, border-color 0.4s;
+    }
+    .trait:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(232,0,109,0.1); }
+    .trait-icon { font-size: 1.6rem; margin-bottom: 0.45rem; }
+    .trait-name { font-weight: 600; font-size: 0.875rem; color: var(--td); margin-bottom: 0.2rem; }
+    .trait-desc { font-size: 0.79rem; color: var(--tl); line-height: 1.55; }
+
+    /* STATS STRIP */
+    .stats-strip {
+      background: var(--surface); border-top: 1px solid var(--p100);
+      border-bottom: 1px solid var(--p100);
+      padding: 3rem 2rem;
+      transition: background 0.4s, border-color 0.4s;
+    }
+    .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; text-align: center; }
+    .stat-num {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: 700; color: var(--p500); line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+    .stat-label { font-size: 0.8rem; color: var(--tl); font-weight: 500; letter-spacing: 0.3px; }
+
+    /* EXPERIENCE */
+    #experience { background: var(--surface2); transition: background 0.4s; }
+    .timeline { position: relative; margin-top: 3.5rem; }
+    .timeline::before {
+      content: ''; position: absolute; left: 7px; top: 0; bottom: 0; width: 2px;
+      background: linear-gradient(to bottom, var(--p400), var(--p200), transparent);
+    }
+    .tl-item {
+      padding-left: 3rem; padding-bottom: 3rem; position: relative;
+      opacity: 0; transform: translateX(-16px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .tl-item.vis { opacity: 1; transform: translateX(0); }
+    .tl-dot {
+      position: absolute; left: 0; top: 3px;
+      width: 16px; height: 16px; border-radius: 50%;
+      background: var(--p500); border: 3px solid var(--surface2);
+      box-shadow: 0 0 0 2px var(--p300);
+    }
+    .tl-meta { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 0.9rem; }
+    .tl-co { display: flex; align-items: center; gap: 0.85rem; }
+    .tl-logo {
+      width: 42px; height: 42px; border-radius: 9px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.25rem; flex-shrink: 0; border: 1px solid var(--p100);
+      transition: border-color 0.4s;
+    }
+    .tl-role { font-weight: 600; color: var(--td); font-size: 1.02rem; }
+    .tl-coname { color: var(--p500); font-size: 0.85rem; font-weight: 500; margin-top: 2px; }
+    .tl-period { font-size: 0.78rem; color: var(--tl); white-space: nowrap; font-weight: 500; flex-shrink: 0; }
+    .tl-desc { color: var(--tm); font-size: 0.9rem; line-height: 1.72; margin-bottom: 0.75rem; }
+    .tl-list { list-style: none; display: flex; flex-direction: column; gap: 0.38rem; }
+    .tl-list li { font-size: 0.875rem; color: var(--tm); line-height: 1.62; padding-left: 1.1rem; position: relative; }
+    .tl-list li::before { content: '♡'; position: absolute; left: 0; color: var(--p400); font-size: 0.68rem; top: 0.18rem; }
+
+    /* HIGHLIGHTS */
+    #highlights { background: var(--surface); transition: background 0.4s; }
+    .hi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; margin-top: 3rem; }
+    .hi-card {
+      background: var(--p50); border: 1px solid var(--p100);
+      border-radius: 1.25rem; padding: 1.85rem;
+      position: relative; overflow: hidden;
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.25s ease, background 0.4s, border-color 0.4s;
+    }
+    .hi-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--p400), var(--p600));
+    }
+    .hi-card.vis { opacity: 1; transform: translateY(0); }
+    .hi-card:hover { transform: translateY(-5px); box-shadow: 0 18px 44px rgba(232,0,109,0.13); }
+    .hi-icon { font-size: 2.1rem; margin-bottom: 1rem; }
+    .hi-title { font-weight: 700; font-size: 0.97rem; color: var(--td); margin-bottom: 0.5rem; }
+    .hi-desc { font-size: 0.855rem; color: var(--tm); line-height: 1.66; }
+
+    /* GALLERY */
+    #gallery { padding: 0; background: var(--td); }
+    .gallery-grid { display: grid; grid-template-columns: 1.1fr 0.9fr 1fr; height: 560px; }
+    .gallery-item { position: relative; overflow: hidden; }
+    .gallery-item:focus-visible { outline: 3px solid var(--p300); outline-offset: -3px; z-index: 1; }
+    .gallery-item img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.55s ease, filter 0.4s ease;
+      filter: brightness(0.9) saturate(1.05);
+    }
+    .gallery-item:hover img, .gallery-item:focus-visible img { transform: scale(1.04); filter: brightness(0.75) saturate(1.1); }
+    .gallery-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(143,0,66,0.65) 0%, transparent 55%);
+      opacity: 0.45; transition: opacity 0.4s;
+      display: flex; align-items: flex-end; padding: 1.75rem;
+    }
+    .gallery-item:hover .gallery-overlay, .gallery-item:focus-visible .gallery-overlay { opacity: 1; }
+    .gallery-caption { color: white; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.3px; }
+    .gallery-item + .gallery-item { border-left: 2px solid rgba(255,80,150,0.3); }
+    .gallery-hint {
+      text-align: center; padding: 1.1rem; background: var(--td);
+      color: rgba(255,255,255,0.4); font-size: 0.72rem; letter-spacing: 2px;
+      text-transform: uppercase; display: none;
+    }
+
+    /* LIGHTBOX */
+    #lightbox {
+      position: fixed; inset: 0; z-index: 1000;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(0,0,0,0.92);
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    #lightbox.open { opacity: 1; pointer-events: all; }
+    .lb-img-wrap { position: relative; max-width: 90vw; max-height: 88vh; }
+    .lb-img-wrap img {
+      max-width: 90vw; max-height: 88vh;
+      object-fit: contain; border-radius: 0.75rem;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.6);
+      display: block;
+    }
+    .lb-caption {
+      position: absolute; bottom: -2.5rem; left: 0; right: 0;
+      text-align: center; color: rgba(255,255,255,0.65);
+      font-size: 0.82rem; letter-spacing: 0.3px;
+    }
+    .lb-close {
+      position: absolute; top: 1.25rem; right: 1.5rem;
+      background: rgba(255,255,255,0.1); border: none; color: white;
+      width: 40px; height: 40px; border-radius: 50%;
+      font-size: 1.2rem; z-index: 1;
+      transition: background 0.2s;
+    }
+    .lb-close:hover { background: rgba(255,255,255,0.2); }
+    .lb-prev, .lb-next {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      background: rgba(255,255,255,0.1); border: none; color: white;
+      width: 48px; height: 48px; border-radius: 50%;
+      font-size: 1.5rem;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .lb-prev:hover, .lb-next:hover { background: rgba(232,0,109,0.5); transform: translateY(-50%) scale(1.1); }
+    .lb-prev { left: 1.5rem; }
+    .lb-next { right: 1.5rem; }
+
+    /* LIFE */
+    #life { background: var(--surface2); transition: background 0.4s; }
+    .life-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.4rem; margin-top: 3rem; }
+    .life-card {
+      background: var(--surface); border: 1px solid var(--p100); border-radius: 1.3rem;
+      padding: 2rem 1.75rem; text-align: center;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.4s, border-color 0.4s;
+    }
+    .life-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(232,0,109,0.11); }
+    .life-icon { font-size: 2.5rem; margin-bottom: 0.9rem; }
+    .life-name { font-weight: 700; font-size: 1rem; color: var(--td); margin-bottom: 0.5rem; }
+    .life-desc { font-size: 0.875rem; color: var(--tm); line-height: 1.68; }
+
+    /* EDUCATION */
+    #education { background: var(--surface); transition: background 0.4s; }
+    .edu-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; margin-top: 2.5rem; }
+    .edu-card {
+      background: var(--surface2); border-radius: 1.3rem; padding: 2.25rem 2.5rem;
+      border: 1px solid var(--p100);
+      transition: box-shadow 0.22s ease, background 0.4s, border-color 0.4s;
+    }
+    .edu-card:hover { box-shadow: 0 10px 36px rgba(232,0,109,0.1); }
+    .edu-icon { font-size: 3rem; margin-bottom: 1rem; }
+    .edu-degree { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--td); margin-bottom: 0.28rem; }
+    .edu-school { color: var(--p500); font-weight: 600; font-size: 0.95rem; margin-bottom: 0.25rem; }
+    .edu-period { color: var(--tl); font-size: 0.84rem; margin-bottom: 0.9rem; }
+    .edu-note { color: var(--tm); font-size: 0.875rem; line-height: 1.68; }
+    .husky {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      background: #4b2e83; color: white;
+      padding: 0.3rem 0.85rem; border-radius: 2rem;
+      font-size: 0.74rem; font-weight: 600; margin-top: 0.85rem;
+    }
+    .edu-photo { border-radius: 1.5rem; overflow: hidden; box-shadow: 0 16px 48px rgba(143,0,66,0.18); aspect-ratio: 3/4; }
+    .edu-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 78%; }
+
+    /* SKILLS */
+    #skills { background: var(--surface2); transition: background 0.4s; }
+    .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; margin-top: 3rem; }
+    .sk-label { font-weight: 700; font-size: 0.78rem; color: var(--p500); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1.2rem; }
+    .tags { display: flex; flex-wrap: wrap; gap: 0.55rem; }
+    .tag {
+      background: var(--surface); border: 1px solid var(--p200);
+      color: var(--td); padding: 0.38rem 1rem; border-radius: 2rem;
+      font-size: 0.8rem; font-weight: 500; cursor: pointer;
+      position: relative;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
+    .tag:hover { background: var(--p500); color: white; border-color: var(--p500); transform: scale(1.06); }
+    .tag.active { background: var(--p500); color: white; border-color: var(--p500); }
+
+    /* SKILL TOOLTIP */
+    .tooltip {
+      position: fixed; z-index: 800;
+      background: white; color: var(--td);
+      border: 1px solid var(--p200); border-radius: 0.75rem;
+      padding: 0.75rem 1rem; font-size: 0.82rem; line-height: 1.5;
+      max-width: 240px; pointer-events: none;
+      box-shadow: 0 8px 24px rgba(232,0,109,0.12);
+      opacity: 0; transform: translateY(4px);
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .tooltip::before {
+      content: ''; position: absolute; top: -6px; left: 16px;
+      width: 10px; height: 10px; background: white;
+      border-left: 1px solid var(--p200); border-top: 1px solid var(--p200);
+      transform: rotate(45deg);
+    }
+    .tooltip.show { opacity: 1; transform: translateY(0); }
+
+    /* CONTACT */
+    #contact { background: var(--surface); transition: background 0.4s; }
+    .contact-inner { margin-top: 3rem; display: flex; align-items: flex-start; gap: 4rem; }
+    .contact-text { flex: 1; }
+    .contact-text p { color: var(--tm); line-height: 1.85; font-size: 0.975rem; margin-bottom: 1.75rem; }
+    .contact-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .contact-btn {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      padding: 0.8rem 1.8rem; border-radius: 3rem;
+      font-size: 0.875rem; font-weight: 600; text-decoration: none;
+      transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
+      will-change: transform;
+    }
+    .contact-btn-primary { background: var(--p500); color: white; }
+    .contact-btn-primary:hover { background: var(--p600); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(232,0,109,0.3); }
+    .contact-btn-secondary { background: var(--p50); color: var(--p500); border: 2px solid var(--p200); }
+    .contact-btn-secondary:hover { background: var(--p100); transform: translateY(-2px); border-color: var(--p400); }
+    .contact-photo { width: 280px; flex-shrink: 0; border-radius: 1.5rem; overflow: hidden; box-shadow: 0 16px 48px rgba(143,0,66,0.15); aspect-ratio: 3/4; }
+    .contact-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 55%; }
+
+    /* FOOTER */
+    footer { background: linear-gradient(135deg, #e8006d, #8f0042); color: white; text-align: center; padding: 3.25rem 2rem; }
+    .f-name { font-family: 'Playfair Display', serif; font-size: 1.85rem; font-weight: 700; margin-bottom: 0.5rem; }
+    footer p { opacity: 0.78; font-size: 0.875rem; line-height: 1.65; }
+    .f-made { margin-top: 1.25rem; opacity: 0.38; font-size: 0.7rem; }
+    #confetti-trigger {
+      display: inline-block;
+      transition: transform 0.2s;
+      cursor: none;
+    }
+    #confetti-trigger:hover { transform: scale(1.4) rotate(15deg); }
+
+    /* CONFETTI CANVAS */
+    #confetti-canvas {
+      position: fixed; inset: 0; pointer-events: none;
+      z-index: 9990; display: none;
+    }
+
+    /* FADE-UP */
+    .fu { opacity: 0; transform: translateY(22px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fu.vis { opacity: 1; transform: translateY(0); }
+
+    /* RESPONSIVE */
+    @media (max-width: 960px) {
+      .hero-inner { grid-template-columns: 1fr; text-align: center; }
+      .hero-photo-wrap { display: block; max-width: 260px; margin: 2rem auto 0; }
+      .hero-chips, .hero-btns { justify-content: center; }
+      .hero-typewriter { text-align: center; }
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .hi-grid { grid-template-columns: 1fr 1fr; }
+      .edu-wrap { grid-template-columns: 1fr; }
+      .edu-photo { max-width: 340px; }
+      .contact-inner { flex-direction: column; gap: 2rem; }
+      .contact-photo { width: 100%; max-width: 280px; margin: 0 auto; }
+    }
+    @media (max-width: 700px) {
+      nav ul.nav-links { display: none; }
+      .hamburger { display: flex; }
+      .about-grid, .skills-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .trait-grid { grid-template-columns: 1fr 1fr; }
+      .hi-grid, .life-grid { grid-template-columns: 1fr; }
+      .tl-meta { flex-direction: column; }
+      .gallery-grid { grid-template-columns: repeat(3, 82vw); height: 320px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+      .gallery-grid::-webkit-scrollbar { display: none; }
+      .gallery-item { scroll-snap-align: start; }
+      .gallery-item + .gallery-item { border-left: none; }
+      .gallery-hint { display: block; }
+      .lb-prev { left: 0.5rem; } .lb-next { right: 0.5rem; }
+      .stats-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+      .fu, .tl-item, .hi-card { opacity: 1 !important; transform: none !important; }
+      html { scroll-behavior: auto; }
+      #cursor-dot { display: none; }
+    }
+    @media (pointer: coarse) { #cursor-dot { display: none; } body, a, button, .tag, .gallery-item, .hi-card, .trait, .life-card { cursor: auto !important; } }
+  </style>
+</head>
+<body>
+
+<canvas id="confetti-canvas" aria-hidden="true"></canvas>
+
+<div id="progress-bar" role="progressbar" aria-label="Page scroll progress"></div>
+
+<!-- Mobile nav -->
+<div class="mobile-nav" id="mobile-nav" role="dialog" aria-modal="true" aria-label="Navigation">
+  <a href="#about">About</a>
+  <a href="#experience">Experience</a>
+  <a href="#highlights">Highlights</a>
+  <a href="#education">Education</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-logo">Sydney Longhurst</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#highlights">Highlights</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="dark-toggle" id="dark-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">🌙</button>
+    <button class="hamburger" id="hamburger" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <p class="hero-eyebrow">Portfolio &amp; Bio</p>
+      <h1 class="hero-name">Sydney<br><em>Longhurst</em></h1>
+      <p class="hero-tagline">Part people person, part analytical nerd. Happiest when the data and the conversation are both on the table at once.</p>
+      <div class="hero-typewriter" aria-live="polite">
+        <span id="typewriter-text"></span><span class="typewriter-cursor" aria-hidden="true">|</span>
+      </div>
+      <div class="hero-chips">
+        <span class="hero-chip">🌸 UW Class of 2026</span>
+        <span class="hero-chip">⚖️ Compliance Analyst</span>
+        <span class="hero-chip">🚲 Spin Instructor</span>
+        <span class="hero-chip">🏋️ Lifter &amp; Pilates devotee</span>
+        <span class="hero-chip">🏔️ Outdoors enthusiast</span>
+      </div>
+      <div class="hero-btns">
+        <a href="#experience" class="btn btn-white magnetic">See My Work</a>
+        <a href="#contact" class="btn btn-ghost magnetic">Get in Touch</a>
+      </div>
+    </div>
+    <div class="hero-photo-wrap">
+      <img class="hero-photo" src="IMG_7375.JPG" alt="Sydney Longhurst at the University of Washington" width="420" height="560">
+    </div>
+  </div>
+  <div class="scroll-hint" aria-hidden="true">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+    scroll
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <p class="label fu">About Me</p>
+    <h2 class="fu">Meet Sydney 👋</h2>
+    <div class="about-grid">
+      <div class="about-text fu">
+        <p>Sydney is a 2026 graduate of the University of Washington, currently working as an Associate Compliance Analyst at Identity Digital Inc. in Bellevue, sitting at the edge of internet infrastructure and the emerging world of AI agents.</p>
+        <p>She's always been a bit of a paradox: as comfortable building connections over a good conversation as she is untangling complex systems at a desk. That tension isn't something she tries to resolve; it's the thing that drives her.</p>
+        <p>From coordinating a twelve-person research team on nuclear politics in outer space to presenting data methodology to a team in Mumbai, she's learned that the best outcomes live at the intersection of careful thinking and clear communication.</p>
+        <p>Whatever room she's in, you can count on Sydney to bring genuine energy and a real desire to get things right.</p>
+        <!-- CURRENTLY CARD -->
+        <div class="currently-card fu">
+          <div class="currently-header">
+            <span class="currently-dot"></span>
+            <span class="currently-label">Currently</span>
+          </div>
+          <div class="currently-items">
+            <div class="currently-item">🔐 Building compliance frameworks for the AI agent economy at Identity Digital</div>
+            <div class="currently-item">🏔️ Planning the next PNW backpacking adventure</div>
+            <div class="currently-item">🚲 Teaching spin at UW every week</div>
+            <div class="currently-item">🌸 Staying curious about what comes next</div>
+          </div>
+        </div>
+      </div>
+      <div class="trait-grid">
+        <div class="trait fu">
+          <div class="trait-icon">🧠</div>
+          <div class="trait-name">Analytical</div>
+          <div class="trait-desc">Digs into complexity across private market data and compliance frameworks, always finding the signal in the noise.</div>
+        </div>
+        <div class="trait fu">
+          <div class="trait-icon">💬</div>
+          <div class="trait-name">Communicator</div>
+          <div class="trait-desc">Translates big ideas into clear ones, whether that's a Mumbai presentation or motivating a spin class.</div>
+        </div>
+        <div class="trait fu">
+          <div class="trait-icon">🔍</div>
+          <div class="trait-name">Curious</div>
+          <div class="trait-desc">Jumped from nuclear geopolitics to AI identity without skipping a beat. Perpetually interested, never bored.</div>
+        </div>
+        <div class="trait fu">
+          <div class="trait-icon">⚡</div>
+          <div class="trait-name">Energetic</div>
+          <div class="trait-desc">Brings real momentum into everything, a bar she holds herself to professionally and physically.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS STRIP -->
+<div class="stats-strip">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item fu" style="transition-delay:0s">
+        <span class="stat-num" data-target="12">0</span>
+        <span class="stat-label">researchers led</span>
+      </div>
+      <div class="stat-item fu" style="transition-delay:0.1s">
+        <span class="stat-num" data-target="2">0</span>
+        <span class="stat-label">continents connected</span>
+      </div>
+      <div class="stat-item fu" style="transition-delay:0.2s">
+        <span class="stat-num" data-target="4">0</span>
+        <span class="stat-label">roles across 3 industries</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <p class="label fu">Career</p>
+    <h2 class="fu">Experience</h2>
+    <p class="sub fu">A consistent pattern of diving into unfamiliar territory, learning fast, and producing something real.</p>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-meta">
+          <div class="tl-co">
+            <div class="tl-logo" style="background:#fdf0ff;">🔐</div>
+            <div><div class="tl-role">Associate Compliance Analyst</div><div class="tl-coname">Identity Digital Inc.</div></div>
+          </div>
+          <div class="tl-period">Jan 2026 – Present · Bellevue, WA</div>
+        </div>
+        <p class="tl-desc">Identity Digital sits at the foundation of how the internet assigns names and ownership. Sydney joined as the company built DNSid™, a DNS-anchored identity standard for AI agents, putting her compliance work at the frontier of a genuinely new problem.</p>
+        <ul class="tl-list">
+          <li>Maintains compliance operations for Innovation Labs, the division developing DNSid™ (essentially a birth certificate for AI agents, built on the same infrastructure that makes the web work)</li>
+          <li>Interprets and applies regulatory requirements in a domain where the rules are still catching up to the technology</li>
+          <li>Works across a team building foundational trust infrastructure for an AI economy that didn't exist five years ago</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-meta">
+          <div class="tl-co">
+            <div class="tl-logo" style="background:#fff0f0;">📊</div>
+            <div><div class="tl-role">Data Operations Intern</div><div class="tl-coname">PitchBook</div></div>
+          </div>
+          <div class="tl-period">Jun – Aug 2025 · Seattle, WA</div>
+        </div>
+        <p class="tl-desc">Three months inside one of Seattle's best-known fintech companies, building hands-on fluency in private capital markets while contributing real work to a team that keeps PitchBook's data engine running.</p>
+        <ul class="tl-list">
+          <li>Designed a research methodology from the ground up and flew it across time zones, delivering the framework directly to PitchBook's Mumbai team</li>
+          <li>Partnered with Sales interns to identify friction points in the platform user experience, connecting the data side of the house to the customer-facing one</li>
+          <li>Sourced and structured data from foreign-language materials, turning raw information into clean records the Data Operations team could actually use</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-meta">
+          <div class="tl-co">
+            <div class="tl-logo" style="background:#fff0f5;">🚲</div>
+            <div><div class="tl-role">Spin / Cycle Instructor</div><div class="tl-coname">University of Washington</div></div>
+          </div>
+          <div class="tl-period">May 2024 – Present · Seattle, WA</div>
+        </div>
+        <p class="tl-desc">A role she earned by holding herself to a genuinely hard standard, then turned into a platform for holding others to one too.</p>
+        <ul class="tl-list">
+          <li>Leads high-energy cycle classes at UW, building a community around shared effort, accountability, and a lot of good music</li>
+          <li>Discovered early that the best way to motivate a room is to not hold back yourself, a principle she carries everywhere</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-meta">
+          <div class="tl-co">
+            <div class="tl-logo" style="background:#fff5f0;">🎯</div>
+            <div><div class="tl-role">Sales Associate</div><div class="tl-coname">Target</div></div>
+          </div>
+          <div class="tl-period">Aug 2023 – Jul 2025 · 2 yrs</div>
+        </div>
+        <p class="tl-desc">Two years of real customer interaction, the kind of experience that teaches you to read a room, stay composed under pressure, and communicate with people rather than at them. The bedrock for everything since.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HIGHLIGHTS -->
+<section id="highlights">
+  <div class="container">
+    <p class="label fu">Stand-out Moments</p>
+    <h2 class="fu">Highlights</h2>
+    <p class="sub fu">A few things worth pausing on.</p>
+    <div class="hi-grid">
+      <div class="hi-card"><div class="hi-icon">🚀</div><div class="hi-title">Nuclear Politics in Outer Space</div><div class="hi-desc">As Strategic Coordinator on a UW Task Force capstone, Sydney managed twelve researchers across ten weeks on a subject most people couldn't pronounce, coordinating timelines, synthesizing research threads, and helping turn it all into a real published report.</div></div>
+      <div class="hi-card"><div class="hi-icon">🏛️</div><div class="hi-title">Washington D.C. Foreign Policy Immersion</div><div class="hi-desc">Traveled to D.C. with her program for a week-long window into how foreign policy actually gets made: the meetings, the trade-offs, the people behind the decisions. A perspective shift that stuck.</div></div>
+      <div class="hi-card"><div class="hi-icon">🌏</div><div class="hi-title">Presented Research to Mumbai</div><div class="hi-desc">At PitchBook, she built a research framework from scratch and took it international, presenting it to the Mumbai office with the kind of clarity that makes a cross-continental room trust you. Intern title, senior delivery.</div></div>
+      <div class="hi-card"><div class="hi-icon">💪</div><div class="hi-title">Certified to Lead</div><div class="hi-desc">Earning her spin instructor certification meant passing a standard most people don't attempt. She did it alongside a full academic and professional schedule and has been teaching ever since.</div></div>
+      <div class="hi-card"><div class="hi-icon">🤖</div><div class="hi-title">Compliance at the AI Frontier</div><div class="hi-desc">Joined Identity Digital exactly when the company was pivoting toward AI agent identity, one of the most consequential infrastructure problems of the next decade. She's in the room where that gets figured out.</div></div>
+      <div class="hi-card"><div class="hi-icon">🐾</div><div class="hi-title">Forever Husky</div><div class="hi-desc">A UW International/Global Studies grad who spent her time there building a global lens, challenging herself academically, and collecting a network of people who push her. The diploma is the smallest part of what she took home. Go Dawgs! 💜</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<div id="gallery">
+  <div class="gallery-grid">
+    <div class="gallery-item" tabindex="0" role="button" aria-label="View photo: University of Washington campus">
+      <img src="IMG_7368.JPG" alt="Sydney walking on the University of Washington campus" width="600" height="800" loading="lazy" style="object-position: center 62%;">
+      <div class="gallery-overlay"></div>
+    </div>
+    <div class="gallery-item" tabindex="0" role="button" aria-label="View photo: Graduation Day">
+      <img src="IMG_7372.JPG" alt="Sydney at her UW graduation" width="600" height="800" loading="lazy" style="object-position: center 82%;">
+      <div class="gallery-overlay"></div>
+    </div>
+    <div class="gallery-item" tabindex="0" role="button" aria-label="View photo: Portrait">
+      <img src="IMG_7375.JPG" alt="Sydney Longhurst graduation portrait" width="600" height="800" loading="lazy" style="object-position: center 18%;">
+      <div class="gallery-overlay"></div>
+    </div>
+  </div>
+  <p class="gallery-hint">← swipe to browse →</p>
+</div>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <button class="lb-close" id="lb-close" aria-label="Close photo">✕</button>
+  <button class="lb-prev" id="lb-prev" aria-label="Previous photo">‹</button>
+  <div class="lb-img-wrap">
+    <img id="lb-img" src="" alt="">
+    <p class="lb-caption" id="lb-caption"></p>
+  </div>
+  <button class="lb-next" id="lb-next" aria-label="Next photo">›</button>
+</div>
+
+<!-- LIFE OUTSIDE WORK -->
+<section id="life">
+  <div class="container">
+    <p class="label fu">Off the Clock</p>
+    <h2 class="fu">Life Outside Work</h2>
+    <p class="sub fu">She takes the same discipline she brings to the office and puts it to work in the gym, the studio, the saddle, and the trail.</p>
+    <div class="life-grid">
+      <div class="life-card fu"><div class="life-icon">🏋️</div><div class="life-name">Strength Training</div><div class="life-desc">Lifting isn't just a hobby. It's a commitment. Sydney shows up consistently, tracks progress, and pushes past the comfortable. The gym is where she learned that steady effort over time is always the answer.</div></div>
+      <div class="life-card fu"><div class="life-icon">🧘</div><div class="life-name">Pilates</div><div class="life-desc">The counterbalance to everything high-intensity. Pilates demands something different: precision, control, and patience. She's good at all three when it counts, and this is where she sharpens them.</div></div>
+      <div class="life-card fu"><div class="life-icon">🚲</div><div class="life-name">Spin Instructor</div><div class="life-desc">Getting certified to teach was about more than fitness. It was about proving she could lead a room. She's been doing it at UW since 2024, building a loyal community one ride at a time.</div></div>
+      <div class="life-card fu"><div class="life-icon">🏔️</div><div class="life-name">Camping, Hiking &amp; Backpacking</div><div class="life-desc">The Pacific Northwest is her playground. Whether it's a weekend car camping trip or a multi-day backpacking push into the backcountry, she's most at home when she's outside with a pack on her back and nowhere to be.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="container">
+    <p class="label fu">Where It Started</p>
+    <h2 class="fu">Education</h2>
+    <div class="edu-wrap">
+      <div class="edu-card fu">
+        <div class="edu-icon">🏫</div>
+        <div class="edu-degree">B.A. in International / Global Studies</div>
+        <div class="edu-school">University of Washington</div>
+        <div class="edu-period">January 2024 – December 2025 · Seattle, WA</div>
+        <p class="edu-note">Two years of building a global perspective, studying the systems, politics, and relationships that shape how the world actually works. Left with a degree, a community, and an unshakeable habit of asking why.</p>
+        <div><span class="husky">🐾 Forever Husky · Go Dawgs!</span></div>
+      </div>
+      <div class="edu-photo fu">
+        <img src="IMG_7372.JPG" alt="Sydney at her University of Washington graduation" width="600" height="800" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <p class="label fu">What She Brings</p>
+    <h2 class="fu">Skills &amp; Interests</h2>
+    <div class="skills-grid fu">
+      <div>
+        <div class="sk-label">Professional Skills</div>
+        <div class="tags">
+          <span class="tag" data-tip="Navigating the regulatory edge of AI agent identity at Identity Digital">Compliance Analysis</span>
+          <span class="tag" data-tip="Cleaned, structured, and delivered data across time zones at PitchBook">Data Operations</span>
+          <span class="tag" data-tip="Built from scratch and presented to PitchBook's Mumbai office">Research Methodology</span>
+          <span class="tag" data-tip="Bridged Sales, Data Ops, and UX teams at PitchBook">Cross-functional Collaboration</span>
+          <span class="tag" data-tip="UW degree focus; lived through D.C. briefings and Mumbai connections">International Relations</span>
+          <span class="tag" data-tip="Led twelve researchers as Strategic Coordinator on the UW Space Task Force">Strategic Coordination</span>
+          <span class="tag" data-tip="From spin class briefings to cross-continental presentations">Stakeholder Communication</span>
+          <span class="tag" data-tip="Three months inside PitchBook's data engine: VC, PE, and everything in between">Private Capital Markets</span>
+          <span class="tag" data-tip="Interpreting rules that are still catching up to the technology">Regulatory Frameworks</span>
+          <span class="tag" data-tip="Ten weeks, twelve people, one published report on nuclear politics in space">Project Leadership</span>
+        </div>
+      </div>
+      <div>
+        <div class="sk-label">What She's About</div>
+        <div class="tags">
+          <span class="tag">🏋️ Strength Training</span>
+          <span class="tag">🧘 Pilates</span>
+          <span class="tag">🚲 Spin</span>
+          <span class="tag">🏔️ Hiking &amp; Backpacking</span>
+          <span class="tag">⛺ Camping</span>
+          <span class="tag">🌍 Global Affairs</span>
+          <span class="tag">🤖 AI &amp; Digital Identity</span>
+          <span class="tag">🏛️ Foreign Policy</span>
+          <span class="tag">📊 Data</span>
+          <span class="tag">☕ People &amp; Connection</span>
+          <span class="tag">🐾 UW Sports</span>
+          <span class="tag">🚀 Space Geopolitics</span>
+          <span class="tag">🌸 Staying Curious</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <p class="label fu">Get in Touch</p>
+    <h2 class="fu">Let's Connect</h2>
+    <div class="contact-inner">
+      <div class="contact-text fu">
+        <p>Sydney is always open to connecting with thoughtful people, whether that's a conversation about compliance in the AI space, international affairs, or swapping trail recommendations in the Pacific Northwest.</p>
+        <div class="contact-btns">
+          <!-- Update with actual LinkedIn URL -->
+          <a href="https://linkedin.com/in/sydney-longhurst" target="_blank" rel="noopener noreferrer" class="contact-btn contact-btn-primary magnetic">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            LinkedIn
+          </a>
+        </div>
+      </div>
+      <div class="contact-photo fu">
+        <img src="IMG_7368.JPG" alt="Sydney at the University of Washington" width="280" height="373" loading="lazy" style="object-position: center 55%;">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="f-name">Sydney Longhurst</div>
+  <p>Associate Compliance Analyst · Identity Digital Inc. · Bellevue, WA</p>
+  <p>University of Washington '26 · International / Global Studies</p>
+  <p class="f-made">Made with <span id="confetti-trigger" role="button" tabindex="0" aria-label="Click for a surprise!">🌸</span></p>
+</footer>
+
+<!-- TOOLTIP -->
+<div class="tooltip" id="tooltip" role="tooltip" aria-hidden="true"></div>
+
+<script>
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const isTouch = window.matchMedia('(pointer: coarse)').matches;
+
+// ── 1. CUSTOM CURSOR TRAIL ─────────────────────────────
+if (!reducedMotion && !isTouch) {
+  const dot = document.createElement('div');
+  dot.id = 'cursor-dot';
+  document.body.appendChild(dot);
+
+  let mx = -100, my = -100;
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    dot.style.left = mx + 'px';
+    dot.style.top  = my + 'px';
+    if (Math.random() > 0.62) spawnTrail(mx, my);
+  });
+
+  const hoverEls = 'a, button, .tag, .gallery-item, .hi-card, .trait, .life-card, .contact-btn';
+  document.querySelectorAll(hoverEls).forEach(el => {
+    el.addEventListener('mouseenter', () => dot.classList.add('hovering'));
+    el.addEventListener('mouseleave', () => dot.classList.remove('hovering'));
+  });
+
+  const hearts = ['💗','💕','💖','🌸','💓'];
+  function spawnTrail(x, y) {
+    const el = document.createElement('span');
+    el.className = 'cursor-trail';
+    el.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+    el.style.cssText = `left:${x}px;top:${y}px`;
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), 800);
+  }
+}
+
+// ── 2. TYPEWRITER ─────────────────────────────────────
+const phrases = ['Compliance Analyst.','Spin Instructor.','Backpacker & Hiker.','Data Nerd at Heart.','Forever Husky.','People Person.','Always Curious.'];
+let pi = 0, ci = 0, deleting = false;
+const twEl = document.getElementById('typewriter-text');
+
+function typewrite() {
+  const phrase = phrases[pi];
+  if (!deleting) {
+    twEl.textContent = phrase.slice(0, ++ci);
+    if (ci === phrase.length) { deleting = true; setTimeout(typewrite, 1800); return; }
+    setTimeout(typewrite, 65 + Math.random() * 40);
+  } else {
+    twEl.textContent = phrase.slice(0, --ci);
+    if (ci === 0) { deleting = false; pi = (pi + 1) % phrases.length; setTimeout(typewrite, 400); return; }
+    setTimeout(typewrite, 35);
+  }
+}
+if (!reducedMotion) setTimeout(typewrite, 800);
+else twEl.textContent = phrases[0];
+
+// ── 3. LIGHTBOX ────────────────────────────────────────
+const lightbox = document.getElementById('lightbox');
+const lbImg    = document.getElementById('lb-img');
+const lbCap    = document.getElementById('lb-caption');
+const galleryItems = [...document.querySelectorAll('.gallery-item')];
+let lbIndex = 0;
+
+const galleryData = galleryItems.map(item => ({
+  src:     item.querySelector('img').src,
+  alt:     item.querySelector('img').alt,
+  caption: item.querySelector('.gallery-caption').textContent
+}));
+
+function openLightbox(i) {
+  lbIndex = ((i % galleryData.length) + galleryData.length) % galleryData.length;
+  lbImg.src = galleryData[lbIndex].src;
+  lbImg.alt = galleryData[lbIndex].alt;
+  lbCap.textContent = galleryData[lbIndex].caption;
+  lightbox.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  document.getElementById('lb-close').focus();
+}
+function closeLightbox() {
+  lightbox.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+galleryItems.forEach((item, i) => {
+  item.addEventListener('click', () => openLightbox(i));
+  item.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(i); } });
+});
+document.getElementById('lb-close').addEventListener('click', closeLightbox);
+document.getElementById('lb-prev').addEventListener('click', () => openLightbox(lbIndex - 1));
+document.getElementById('lb-next').addEventListener('click', () => openLightbox(lbIndex + 1));
+lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+document.addEventListener('keydown', e => {
+  if (!lightbox.classList.contains('open')) return;
+  if (e.key === 'Escape')     closeLightbox();
+  if (e.key === 'ArrowLeft')  openLightbox(lbIndex - 1);
+  if (e.key === 'ArrowRight') openLightbox(lbIndex + 1);
+});
+
+// ── 4. STAT COUNTERS ───────────────────────────────────
+function animateCount(el) {
+  const target = +el.dataset.target;
+  const dur = target > 100 ? 1800 : 1200;
+  const start = performance.now();
+  function step(now) {
+    const p = Math.min((now - start) / dur, 1);
+    const ease = 1 - Math.pow(1 - p, 3);
+    el.textContent = Math.floor(ease * target);
+    if (p < 1) requestAnimationFrame(step);
+    else el.textContent = target;
+  }
+  requestAnimationFrame(step);
+}
+const statObserver = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.stat-num').forEach(animateCount);
+      statObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('.stats-strip').forEach(s => statObserver.observe(s));
+
+// ── 5. PROGRESS BAR ────────────────────────────────────
+const progressBar = document.getElementById('progress-bar');
+function updateProgress() {
+  const doc = document.documentElement;
+  const pct = (doc.scrollTop || document.body.scrollTop) / (doc.scrollHeight - doc.clientHeight) * 100;
+  progressBar.style.width = pct + '%';
+}
+window.addEventListener('scroll', updateProgress, { passive: true });
+
+// ── 6. MAGNETIC BUTTONS ───────────────────────────────
+if (!reducedMotion && !isTouch) {
+  document.querySelectorAll('.magnetic').forEach(btn => {
+    btn.addEventListener('mousemove', e => {
+      const r = btn.getBoundingClientRect();
+      const x = (e.clientX - r.left - r.width  / 2) * 0.28;
+      const y = (e.clientY - r.top  - r.height / 2) * 0.28;
+      btn.style.transform = `translate(${x}px, ${y}px)`;
+    });
+    btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
+  });
+}
+
+// ── 7. DARK MODE ──────────────────────────────────────
+const darkBtn  = document.getElementById('dark-toggle');
+const htmlEl   = document.documentElement;
+function applyTheme(dark) {
+  htmlEl.setAttribute('data-theme', dark ? 'dark' : 'light');
+  darkBtn.textContent = dark ? '☀️' : '🌙';
+  darkBtn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+  localStorage.setItem('slTheme', dark ? 'dark' : 'light');
+}
+darkBtn.addEventListener('click', () => applyTheme(htmlEl.getAttribute('data-theme') !== 'dark'));
+// Set correct icon on load
+applyTheme(htmlEl.getAttribute('data-theme') === 'dark');
+
+// ── 8. SKILL TAG TOOLTIPS ─────────────────────────────
+const tooltip  = document.getElementById('tooltip');
+let activeTag  = null;
+
+document.querySelectorAll('.tag[data-tip]').forEach(tag => {
+  tag.addEventListener('click', e => {
+    e.stopPropagation();
+    if (activeTag === tag && tooltip.classList.contains('show')) {
+      tooltip.classList.remove('show');
+      tag.classList.remove('active');
+      activeTag = null;
+      return;
+    }
+    if (activeTag) { activeTag.classList.remove('active'); }
+    activeTag = tag;
+    tag.classList.add('active');
+    tooltip.textContent = tag.dataset.tip;
+    tooltip.classList.add('show');
+    tooltip.setAttribute('aria-hidden', 'false');
+
+    const r = tag.getBoundingClientRect();
+    let left = r.left + window.scrollX;
+    let top  = r.bottom + window.scrollY + 10;
+    // keep tooltip in viewport
+    const tw = 240;
+    if (left + tw > window.innerWidth - 16) left = window.innerWidth - tw - 16;
+    tooltip.style.left = left + 'px';
+    tooltip.style.top  = top  + 'px';
+  });
+});
+document.addEventListener('click', () => {
+  tooltip.classList.remove('show');
+  tooltip.setAttribute('aria-hidden', 'true');
+  if (activeTag) { activeTag.classList.remove('active'); activeTag = null; }
+});
+
+// ── 9. PARTICLE CANVAS ────────────────────────────────
+if (!reducedMotion) {
+  const canvas = document.getElementById('particle-canvas');
+  const ctx    = canvas.getContext('2d');
+  let W, H, parts = [], running = true;
+
+  function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
+  resize();
+  window.addEventListener('resize', resize);
+  document.addEventListener('visibilitychange', () => { running = !document.hidden; if (running) requestAnimationFrame(animate); });
+
+  function mkPart() {
+    return { x: Math.random()*W, y: H+15, r: Math.random()*5+2, vx: (Math.random()-.5)*1.2, vy: -(Math.random()*1.3+0.4), a: Math.random()*.45+.08, life:0, max: Math.random()*220+80, spin:(Math.random()-.5)*.04, rot:Math.random()*Math.PI*2, heart:Math.random()>.55 };
+  }
+  function drawHeart(x,y,s) { ctx.beginPath(); ctx.moveTo(x,y-s*.3); ctx.bezierCurveTo(x+s*.5,y-s,x+s,y-s*.3,x,y+s*.5); ctx.bezierCurveTo(x-s,y-s*.3,x-s*.5,y-s,x,y-s*.3); ctx.closePath(); }
+  function animate() {
+    if (!running) return;
+    ctx.clearRect(0,0,W,H);
+    if (parts.length<45 && Math.random()>.82) parts.push(mkPart());
+    parts = parts.filter(p=>p.life<p.max);
+    parts.forEach(p => {
+      p.x+=p.vx; p.y+=p.vy; p.rot+=p.spin; p.life++;
+      const fade=1-Math.max(0,(p.life/p.max-.65)/.35);
+      ctx.save(); ctx.globalAlpha=p.a*fade; ctx.fillStyle='white';
+      ctx.translate(p.x,p.y); ctx.rotate(p.rot);
+      if(p.heart){drawHeart(0,0,p.r);ctx.fill();}
+      else{ctx.beginPath();ctx.arc(0,0,p.r,0,Math.PI*2);ctx.fill();}
+      ctx.restore();
+    });
+    requestAnimationFrame(animate);
+  }
+  animate();
+}
+
+// ── 10. CONFETTI + HEARTS ─────────────────────────────
+const confettiCanvas = document.getElementById('confetti-canvas');
+const cctx = confettiCanvas.getContext('2d');
+const confettiColors = ['#ff4d92','#e8006d','#ffb3ce','#ff80b0','#ffffff','#ffd6e0','#8f0042','#ffccd5','#ff99c8'];
+let confettiPieces = [], confettiRunning = false;
+
+function drawConfettiHeart(ctx, s) {
+  ctx.beginPath();
+  ctx.moveTo(0, -s * 0.3);
+  ctx.bezierCurveTo( s*.5, -s,  s,  -s*.3, 0,  s*.5);
+  ctx.bezierCurveTo(-s,   -s*.3, -s*.5, -s, 0, -s*.3);
+  ctx.closePath();
+}
+
+function launchConfetti(fromTop) {
+  confettiCanvas.style.display = 'block';
+  confettiCanvas.width  = window.innerWidth;
+  confettiCanvas.height = window.innerHeight;
+
+  const count = fromTop ? 200 : 140;
+  for (let i = 0; i < count; i++) {
+    const isHeart = Math.random() > 0.45;
+    let x, vx, vy;
+    if (fromTop) {
+      // rain from top across full width
+      x  = Math.random() * confettiCanvas.width;
+      vx = (Math.random() - .5) * 4;
+      vy = Math.random() * 5 + 2;
+    } else {
+      const angle = Math.random() * Math.PI * 2;
+      const speed = Math.random() * 14 + 4;
+      x  = confettiCanvas.width  / 2;
+      vx = Math.cos(angle) * speed;
+      vy = Math.sin(angle) * speed - 8;
+    }
+    confettiPieces.push({
+      x, y: fromTop ? Math.random() * -120 : confettiCanvas.height / 2,
+      vx, vy,
+      size: isHeart ? Math.random() * 10 + 6 : null,
+      w: !isHeart ? Math.random() * 10 + 5 : null,
+      h: !isHeart ? Math.random() * 5  + 3 : null,
+      isHeart,
+      color: confettiColors[Math.floor(Math.random() * confettiColors.length)],
+      rot: Math.random() * Math.PI * 2,
+      spin: (Math.random() - .5) * (fromTop ? .06 : .3),
+      gravity: fromTop ? .12 + Math.random() * .1 : .45 + Math.random() * .25,
+      life: 1,
+      decay: fromTop ? 0.006 : 0.013
+    });
+  }
+
+  if (!confettiRunning) { confettiRunning = true; animateConfetti(); }
+}
+
+function animateConfetti() {
+  cctx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+  confettiPieces = confettiPieces.filter(p => p.life > 0 && p.y < confettiCanvas.height + 60);
+
+  confettiPieces.forEach(p => {
+    p.x  += p.vx;  p.y  += p.vy;
+    p.vy += p.gravity; p.vx *= 0.99;
+    p.rot += p.spin; p.life -= p.decay;
+    cctx.save();
+    cctx.globalAlpha = Math.max(0, p.life);
+    cctx.translate(p.x, p.y); cctx.rotate(p.rot);
+    cctx.fillStyle = p.color;
+    if (p.isHeart) {
+      drawConfettiHeart(cctx, p.size);
+      cctx.fill();
+    } else {
+      cctx.fillRect(-p.w/2, -p.h/2, p.w, p.h);
+    }
+    cctx.restore();
+  });
+
+  if (confettiPieces.length > 0) requestAnimationFrame(animateConfetti);
+  else { confettiRunning = false; confettiCanvas.style.display = 'none'; }
+}
+
+// Auto-fire on page load
+if (!reducedMotion) {
+  window.addEventListener('load', () => {
+    setTimeout(() => launchConfetti(true), 300);
+  });
+}
+
+// Easter egg: click 🌸 in footer for burst
+const confettiTrigger = document.getElementById('confetti-trigger');
+function fireConfettiBurst() {
+  confettiCanvas.style.display = 'block';
+  confettiCanvas.width  = window.innerWidth;
+  confettiCanvas.height = window.innerHeight;
+  launchConfetti(false);
+}
+confettiTrigger.addEventListener('click', fireConfettiBurst);
+confettiTrigger.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') fireConfettiBurst(); });
+
+// ── SCROLL ANIMATIONS ─────────────────────────────────
+const io = new IntersectionObserver(
+  entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); }),
+  { threshold: 0.1 }
+);
+document.querySelectorAll('.fu, .tl-item, .hi-card').forEach(el => io.observe(el));
+document.querySelectorAll('.tl-item').forEach((el,i)   => el.style.transitionDelay = `${i*.1}s`);
+document.querySelectorAll('.hi-card').forEach((el,i)   => el.style.transitionDelay = `${i*.08}s`);
+document.querySelectorAll('.life-card').forEach((el,i) => el.style.transitionDelay = `${i*.1}s`);
+document.querySelectorAll('.trait.fu').forEach((el,i)  => el.style.transitionDelay = `${i*.1}s`);
+
+// ── ACTIVE NAV ────────────────────────────────────────
+const navLinks = document.querySelectorAll('.nav-links a');
+const navObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting)
+      navLinks.forEach(a => a.classList.toggle('nav-active', a.getAttribute('href') === `#${entry.target.id}`));
+  });
+}, { rootMargin: '-35% 0px -60% 0px' });
+document.querySelectorAll('section[id]').forEach(s => navObserver.observe(s));
+
+// ── NAV SHADOW ────────────────────────────────────────
+window.addEventListener('scroll', () =>
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 30)
+, { passive: true });
+
+// ── HAMBURGER ─────────────────────────────────────────
+const hamburger = document.getElementById('hamburger');
+const mobileNav = document.getElementById('mobile-nav');
+function toggleMenu(open) {
+  hamburger.classList.toggle('open', open);
+  mobileNav.classList.toggle('open', open);
+  hamburger.setAttribute('aria-expanded', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+}
+hamburger.addEventListener('click', () => toggleMenu(!mobileNav.classList.contains('open')));
+mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggleMenu(false)));
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    if (mobileNav.classList.contains('open')) toggleMenu(false);
+  }
+});
+</script>
+</body>
+</html>
